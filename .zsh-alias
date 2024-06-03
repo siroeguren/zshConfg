@@ -1,0 +1,5 @@
+alias igco="changeGitBranch"
+alias ls="lsd"
+alias utest= 'vendor/bin/phpunit'
+alias oconsume="bin/console app:fixtures:orders && php ./bin/console messenger:consume -vv"
+

@@ -1,0 +1,28 @@
+changeGitBranch()
+{
+	git branch | fzf | xargs -I_ git checkout _	
+}
+
+_show_history()
+{
+	hist=$(fc -rl 1 | awk '{$1="";print substr($0,2)}' | fzf -i -e +s)
+	LBUFFER=$hist
+}
+zle  -N  _show_history
+bindkey '^h' _show_history
+
+clipBoard()
+{
+	rofi -show clipboard -modi "clipboard:greenclip print" -theme solarized -run-command '{cmd}'
+
+}
+zle -N clipBoard
+bindkey '^k' clipBoard
+
+soundSettings() 
+{
+    gnome-control-center sound
+}
+
+zle -N soundSettings
+bindkey '^\' soundSettings
